@@ -2,7 +2,7 @@ var encriptarBoton = document.querySelector(".encriptar-boton");
 var desencriptarBoton = document.querySelector(".desencriptar-boton");
 var munieco = document.querySelector(".muniecoContenedor");
 var contenedor = document.querySelector(".parrafo-contenedor");
-var resultado = document.querySelector(".encriptar-boton");
+var resultado = document.querySelector(".resultado-texto");
 
 encriptarBoton.onclick = encriptar;
 desencriptarBoton.onclick = desencriptar;
@@ -10,7 +10,7 @@ desencriptarBoton.onclick = desencriptar;
 function encriptar(){
     ocultarAdelante();
     var cajatexto = recuperarTexto()
-    resultado.textContent = desencriptarTexto(cajatexto);
+    resultado.textContent = encriptarTexto(cajatexto);
 }
 
 function desencriptar(){
@@ -25,8 +25,8 @@ function recuperarTexto(){
 }
 
 function ocultarAdelante(){
-    muniecoContenedor.classList.add("ocultar");
-    contenedor.classList.add(".ocultar");
+    munieco.classList.add("ocultar");
+    contenedor.classList.add("ocultar");
 }
 
 function encriptarTexto(mensaje){
@@ -88,11 +88,12 @@ function desencriptarTexto(mensaje){
         }
     }
     return textoFinal;
+    
 }
 
 const btnCopiar = document.querySelector(".copiar-boton");
     btnCopiar.addEventListener("click", copiar = () => {
     var contenido = document.querySelector(".resultado-texto").textContent;
     navigator.clipboard.writeText(contenido);
-    console.log("hola")
+    console.log("hola");
 });
