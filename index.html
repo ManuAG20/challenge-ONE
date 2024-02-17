@@ -16,6 +16,17 @@
         textarea.value = textarea.value.toLowerCase();
         }
     </script>
+    <script>
+        function quitarTildes(textarea) {
+        var textoSinTildes = textarea.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        textarea.value = textoSinTildes.toLowerCase();
+        }
+    </script>
+    <script>
+        function filtrarCaracteresEspeciales(textarea) {
+        textarea.value = textarea.value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -25,7 +36,7 @@
     <main>
         <section class="seccion1">
             <div class="contenedor-texto">
-                <textarea placeholder="Ingrese el texto aqui" class="cajatexto" oninput="convertirAMinusculas(this)" ></textarea>
+                <textarea placeholder="Ingrese el texto aqui" class="cajatexto" oninput="filtrarCaracteresEspeciales(this)" oninput="quitarTildes(this)" oninput="convertirAMinusculas(this)" ></textarea>
             </div>
             <div class="alerta">
                 <img src="imagenes/exclamation.svg" alt="signo-exclamacion">
