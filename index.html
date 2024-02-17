@@ -10,15 +10,21 @@
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
     <title>Encriptador ChallengeONE</title>
+    <script>
+        function convertirAMinusculas(textarea) {
+        textarea.value = textarea.value.toLowerCase();
+        }
+    </script>
 </head>
 <body>
     <header>
         <img class="logoA"  src="imagenes/Logo.svg" alt="logoAlura">
     </header>
+    
     <main>
         <section class="seccion1">
             <div class="contenedor-texto">
-                <textarea placeholder="Ingrese el texto aqui" class="cajatexto"></textarea>
+                <textarea placeholder="Ingrese el texto aqui" class="cajatexto" oninput="convertirAMinusculas(this)"" ></textarea>
             </div>
             <div class="alerta">
                 <img src="imagenes/exclamation.svg" alt="signo-exclamacion">
